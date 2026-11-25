@@ -9,7 +9,7 @@ import org.osmdroid.util.GeoPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Configuration.getInstance().userAgentValue = packageName
+        Configuration.getInstance().userAgentValue = "UzkGpsApp/1.0 (https://github.com/uzakihana-uwu/GPSapp)"
         setContentView(R.layout.activity_main)
 
         val map = findViewById<MapView>(R.id.map)
