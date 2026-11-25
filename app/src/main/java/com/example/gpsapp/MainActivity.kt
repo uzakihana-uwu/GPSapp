@@ -1,20 +1,20 @@
 package com.example.gpsapp
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import org.osmdroid.config.Configuration
+import org.osmdroid.views.MapView
+import org.osmdroid.util.GeoPoint
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        Configuration.getInstance().userAgentValue = packageName
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        val map = findViewById<MapView>(R.id.map)
+        map.setMultiTouchControls(true)
+        map.controller.setZoom(15.0)
+        map.controller.setCenter(GeoPoint(35.0116, 135.7681)) // 京都付近
     }
 }
