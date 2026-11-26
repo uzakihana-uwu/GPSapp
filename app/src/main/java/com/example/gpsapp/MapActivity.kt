@@ -1,5 +1,6 @@
 package com.example.gpsapp
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import org.osmdroid.config.Configuration
 import org.osmdroid.util.GeoPoint
@@ -14,6 +15,10 @@ class MapActivity : AppCompatActivity() {
         val map = findViewById<MapView>(R.id.map)
         map.setMultiTouchControls(true)
         map.controller.setZoom(15.0)
-        map.controller.setCenter(GeoPoint(35.0116, 135.7681)) // 京都付
+        map.controller.setCenter(GeoPoint(35.0116, 135.7681)) // 京都付近
+
+        findViewById<Button>(R.id.exitButton).setOnClickListener {
+            finish()
+        }
     }
 }
